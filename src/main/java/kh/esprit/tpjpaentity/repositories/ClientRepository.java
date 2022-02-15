@@ -15,6 +15,16 @@ import kh.esprit.tpjpaentity.enums.Profession;
 
 @Repository
 public interface ClientRepository extends CrudRepository <Client , Long> {
+	
+	
+//	@Query(value = " SELECT * FROM T_Client c WHERE c.dateNaissance between '01/01/1995' and '31/12/1995' " ,nativeQuery = true)
+//	List<Client> findAllClientsByDateNaissance();
+		
+		
+	@Query("SELECT c FROM Client c WHERE c.dateNaissance between '01/01/1995' and '31/12/1995' ")
+	List<Client> findAllClientsByDateNaissance();
+	
+	
 
 //	@Query(value = "SELECT * FROM T_Client c WHERE c.profession= :profession" ,nativeQuery = true)
 //	List<Client> retrieveClientsByProfession(@Param("profession") Profession profession);	
@@ -42,6 +52,8 @@ public interface ClientRepository extends CrudRepository <Client , Long> {
 			@Param("dateN") Date dateNaissance, @Param("email") String email,
 			@Param("password") String password, @Param("profession") Profession
 			profession, @Param("categorieClient") CategorieClient categorieClient);
+	
+	
 	
 	
 	
