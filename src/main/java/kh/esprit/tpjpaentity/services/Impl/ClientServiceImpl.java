@@ -16,6 +16,17 @@ public class ClientServiceImpl implements IClientService {
 
 	@Autowired
 	ClientRepository clientRepository;
+	
+	@Override
+	public List<Client> retrieveAllClients() {
+		
+		List<Client> clients = (List<Client>) clientRepository.findAll();
+		for (Client client : clients) {
+			log.info(" client : " + client);
+		}
+		return clients;
+	}
+	
 
 //	@Override
 //	public List<Client> retrieveAllClients() {
@@ -27,15 +38,7 @@ public class ClientServiceImpl implements IClientService {
 	
 	
 	
-	@Override
-	public List<Client> retrieveAllClients() {
-		
-		List<Client> clients = (List<Client>) clientRepository.findAll();
-		for (Client client : clients) {
-			log.info(" client : " + client);
-		}
-		return clients;
-	}
+	
 	
 
 	@Override
