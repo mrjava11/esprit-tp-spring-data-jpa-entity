@@ -16,8 +16,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.experimental.FieldDefaults;
+
 @Entity
 @Table( name = "Facture")
+@Data @AllArgsConstructor 
+@FieldDefaults(level=AccessLevel.PRIVATE)
 public class Facture implements Serializable {
 	
 	@Id
@@ -45,70 +52,6 @@ public class Facture implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="facture")
 	private Set<DetailFacture> detailFactures;
 
-	public Long getIdFacture() {
-		return idFacture;
-	}
-
-	public void setIdFacture(Long idFacture) {
-		this.idFacture = idFacture;
-	}
-
-	public float getMontantRemise() {
-		return montantRemise;
-	}
-
-	public void setMontantRemise(float montantRemise) {
-		this.montantRemise = montantRemise;
-	}
-
-	public float getMontantFacture() {
-		return montantFacture;
-	}
-
-	public void setMontantFacture(float montantFacture) {
-		this.montantFacture = montantFacture;
-	}
-
-	public Date getDateFacture() {
-		return dateFacture;
-	}
-
-	public void setDateFacture(Date dateFacture) {
-		this.dateFacture = dateFacture;
-	}
-
-	public boolean isActive() {
-		return active;
-	}
-
-	public void setActive(boolean active) {
-		this.active = active;
-	}
-
-	public Client getClient_facture() {
-		return client_facture;
-	}
-
-	public void setClient_facture(Client client_facture) {
-		this.client_facture = client_facture;
-	}
-
-	public Set<DetailFacture> getDetailFactures() {
-		return detailFactures;
-	}
-
-	public void setDetailFactures(Set<DetailFacture> detailFactures) {
-		this.detailFactures = detailFactures;
-	}
-
-	@Override
-	public String toString() {
-		return "Facture [idFacture=" + idFacture + ", montantRemise=" + montantRemise + ", montantFacture="
-				+ montantFacture + ", dateFacture=" + dateFacture + ", active=" + active + ", client_facture="
-				+ client_facture + ", detailFactures=" + detailFactures + "]";
-	}
-	
-	
 	
 
 }

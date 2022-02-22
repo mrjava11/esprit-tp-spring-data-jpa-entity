@@ -12,8 +12,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.experimental.FieldDefaults;
+
 @Entity
 @Table( name = "Stock")
+@Data @AllArgsConstructor 
+@FieldDefaults(level=AccessLevel.PRIVATE)
 public class Stock implements Serializable {
 	
 	@Id
@@ -33,53 +40,7 @@ public class Stock implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="stock")
 	private Set<Produit> produits_stock;
 
-	public Long getIdStock() {
-		return idStock;
-	}
-
-	public void setIdStock(Long idStock) {
-		this.idStock = idStock;
-	}
-
-	public int getQteStock() {
-		return qteStock;
-	}
-
-	public void setQteStock(int qteStock) {
-		this.qteStock = qteStock;
-	}
-
-	public int getQteMin() {
-		return qteMin;
-	}
-
-	public void setQteMin(int qteMin) {
-		this.qteMin = qteMin;
-	}
-
-	public String getLibelleStock() {
-		return libelleStock;
-	}
-
-	public void setLibelleStock(String libelleStock) {
-		this.libelleStock = libelleStock;
-	}
-
-	public Set<Produit> getProduits_stock() {
-		return produits_stock;
-	}
-
-	public void setProduits_stock(Set<Produit> produits_stock) {
-		this.produits_stock = produits_stock;
-	}
-
-	@Override
-	public String toString() {
-		return "Stock [idStock=" + idStock + ", qteStock=" + qteStock + ", qteMin=" + qteMin + ", libelleStock="
-				+ libelleStock + ", produits_stock=" + produits_stock + "]";
-	}
-
 	
-	
+
 	
 }

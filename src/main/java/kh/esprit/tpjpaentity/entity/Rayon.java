@@ -12,8 +12,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.experimental.FieldDefaults;
+
 @Entity
 @Table( name = "Rayon")
+@Data @AllArgsConstructor 
+@FieldDefaults(level=AccessLevel.PRIVATE)
 public class Rayon implements Serializable {
 
 	@Id
@@ -30,47 +37,6 @@ public class Rayon implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="rayon")
 	private Set<Produit> produits_rayon;
 
-	public Long getIdRayon() {
-		return idRayon;
-	}
-
-	public void setIdRayon(Long idRayon) {
-		this.idRayon = idRayon;
-	}
-
-	public String getCodeRayon() {
-		return codeRayon;
-	}
-
-	public void setCodeRayon(String codeRayon) {
-		this.codeRayon = codeRayon;
-	}
-
-	public String getLibelleRayon() {
-		return libelleRayon;
-	}
-
-	public void setLibelleRayon(String libelleRayon) {
-		this.libelleRayon = libelleRayon;
-	}
-
-	public Set<Produit> getProduits_rayon() {
-		return produits_rayon;
-	}
-
-	public void setProduits_rayon(Set<Produit> produits_rayon) {
-		this.produits_rayon = produits_rayon;
-	}
-
-	@Override
-	public String toString() {
-		return "Rayon [idRayon=" + idRayon + ", codeRayon=" + codeRayon + ", libelleRayon=" + libelleRayon
-				+ ", produits_rayon=" + produits_rayon + "]";
-	}
-	
-	
-	
-	
 	
 	
 }

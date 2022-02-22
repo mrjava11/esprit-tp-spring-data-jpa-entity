@@ -17,9 +17,15 @@ import javax.persistence.TemporalType;
 
 
 import kh.esprit.tpjpaentity.enums.CategorieProduit;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.experimental.FieldDefaults;
 
 @Entity
 @Table( name = "DetailProduit")
+@Data @AllArgsConstructor 
+@FieldDefaults(level=AccessLevel.PRIVATE)
 public class DetailProduit implements Serializable {
 	
 	@Id
@@ -42,52 +48,6 @@ public class DetailProduit implements Serializable {
 	@OneToOne(mappedBy="detailProduit")
 	private Produit produit;
 
-	public Long getIdDetailProduit() {
-		return idDetailProduit;
-	}
-
-	public void setIdDetailProduit(Long idDetailProduit) {
-		this.idDetailProduit = idDetailProduit;
-	}
-
-	public Date getDateCration() {
-		return dateCration;
-	}
-
-	public void setDateCration(Date dateCration) {
-		this.dateCration = dateCration;
-	}
-
-	public Date getDateDerniereModification() {
-		return dateDerniereModification;
-	}
-
-	public void setDateDerniereModification(Date dateDerniereModification) {
-		this.dateDerniereModification = dateDerniereModification;
-	}
-
-	public CategorieProduit getCategorieProduit() {
-		return categorieProduit;
-	}
-
-	public void setCategorieProduit(CategorieProduit categorieProduit) {
-		this.categorieProduit = categorieProduit;
-	}
-
-	public Produit getProduit() {
-		return produit;
-	}
-
-	public void setProduit(Produit produit) {
-		this.produit = produit;
-	}
-
-	@Override
-	public String toString() {
-		return "DetailProduit [idDetailProduit=" + idDetailProduit + ", dateCration=" + dateCration
-				+ ", dateDerniereModification=" + dateDerniereModification + ", categorieProduit=" + categorieProduit
-				+ ", produit=" + produit + "]";
-	}
 	
 	
 	

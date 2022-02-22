@@ -17,11 +17,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.experimental.FieldDefaults;
+
 
 
 
 @Entity
 @Table( name = "Produit")
+@Data @AllArgsConstructor 
+@FieldDefaults(level=AccessLevel.PRIVATE)
 public class Produit implements Serializable {
 	
 	@Id
@@ -54,88 +61,6 @@ public class Produit implements Serializable {
 	@ManyToMany(mappedBy="produits", cascade = CascadeType.ALL)
 	private Set<Fournisseur> Fournisseurs;
 
-	public Long getIdProduit() {
-		return idProduit;
-	}
-
-	public void setIdProduit(Long idProduit) {
-		this.idProduit = idProduit;
-	}
-
-	public String getCodeProduit() {
-		return codeProduit;
-	}
-
-	public void setCodeProduit(String codeProduit) {
-		this.codeProduit = codeProduit;
-	}
-
-	public String getLibelleProduit() {
-		return libelleProduit;
-	}
-
-	public void setLibelleProduit(String libelleProduit) {
-		this.libelleProduit = libelleProduit;
-	}
-
-	public float getPrixUnitaire() {
-		return prixUnitaire;
-	}
-
-	public void setPrixUnitaire(float prixUnitaire) {
-		this.prixUnitaire = prixUnitaire;
-	}
-
-	public Rayon getRayon() {
-		return rayon;
-	}
-
-	public void setRayon(Rayon rayon) {
-		this.rayon = rayon;
-	}
-
-	public Stock getStock() {
-		return stock;
-	}
-
-	public void setStock(Stock stock) {
-		this.stock = stock;
-	}
-
-	public DetailProduit getDetailProduit() {
-		return detailProduit;
-	}
-
-	public void setDetailProduit(DetailProduit detailProduit) {
-		this.detailProduit = detailProduit;
-	}
-
-	public Set<DetailFacture> getDetailFactures() {
-		return detailFactures;
-	}
-
-	public void setDetailFactures(Set<DetailFacture> detailFactures) {
-		this.detailFactures = detailFactures;
-	}
-
-	public Set<Fournisseur> getFournisseurs() {
-		return Fournisseurs;
-	}
-
-	public void setFournisseurs(Set<Fournisseur> fournisseurs) {
-		Fournisseurs = fournisseurs;
-	}
-
-	@Override
-	public String toString() {
-		return "Produit [idProduit=" + idProduit + ", codeProduit=" + codeProduit + ", libelleProduit=" + libelleProduit
-				+ ", prixUnitaire=" + prixUnitaire + ", rayon=" + rayon + ", stock=" + stock + ", detailProduit="
-				+ detailProduit + ", detailFactures=" + detailFactures + ", Fournisseurs=" + Fournisseurs + "]";
-	}
-	
-	
-
-	
 	
 	
 	

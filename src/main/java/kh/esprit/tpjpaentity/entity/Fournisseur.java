@@ -12,8 +12,15 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.experimental.FieldDefaults;
+
 @Entity
 @Table( name = "Fournisseur")
+@Data @AllArgsConstructor 
+@FieldDefaults(level=AccessLevel.PRIVATE)
 public class Fournisseur implements Serializable {
 
 	@Id
@@ -30,45 +37,6 @@ public class Fournisseur implements Serializable {
 	@ManyToMany(cascade = CascadeType.ALL)
 	private Set<Produit> produits;
 
-	public Long getIdFournisseur() {
-		return idFournisseur;
-	}
-
-	public void setIdFournisseur(Long idFournisseur) {
-		this.idFournisseur = idFournisseur;
-	}
-
-	public String getCodeFournisseur() {
-		return codeFournisseur;
-	}
-
-	public void setCodeFournisseur(String codeFournisseur) {
-		this.codeFournisseur = codeFournisseur;
-	}
-
-	public String getLibelleFournisseur() {
-		return libelleFournisseur;
-	}
-
-	public void setLibelleFournisseur(String libelleFournisseur) {
-		this.libelleFournisseur = libelleFournisseur;
-	}
-
-	public Set<Produit> getProduits() {
-		return produits;
-	}
-
-	public void setProduits(Set<Produit> produits) {
-		this.produits = produits;
-	}
-
-	@Override
-	public String toString() {
-		return "Fournisseur [idFournisseur=" + idFournisseur + ", codeFournisseur=" + codeFournisseur
-				+ ", libelleFournisseur=" + libelleFournisseur + ", produits=" + produits + "]";
-	}
-	
-	
 	
 	
 }
