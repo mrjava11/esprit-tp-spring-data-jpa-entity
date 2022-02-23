@@ -34,7 +34,7 @@ public interface ClientRepository extends CrudRepository <Client , Long> {
 	
 	
 	@Modifying
-	@Query("UPDATE Client c set c.categorieClient = :categorie where u.profession = :profession ")
+	@Query("UPDATE Client c set c.categorieClient = :categorie where c.profession = :profession ")
 	int updateClientCategorieByProfession(@Param("categorie") CategorieClient categorieClient, 
 								          @Param("profession") Profession profession);	
 			

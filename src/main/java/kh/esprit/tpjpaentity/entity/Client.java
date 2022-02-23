@@ -64,6 +64,11 @@ public class Client implements Serializable {
 			private Set<Facture> factures;
 
 
+			public Client() {
+				super();
+			}
+
+
 			
 
 
