@@ -36,7 +36,7 @@ class TpJpaEntityApplicationTests {
 	@Test
 	public void testDeleteStock() {
 		
-		stockRepository.deleteById(1L);
+		stockRepository.deleteById(2L);
 	
 	}
 	
