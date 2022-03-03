@@ -23,6 +23,12 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level=AccessLevel.PRIVATE)
 public class Stock implements Serializable {
 	
+	
+
+	public Stock() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name="idStock")
