@@ -13,11 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import kh.esprit.tpjpaentity.entity.Client;
 import kh.esprit.tpjpaentity.services.Interfaces.IClientService;
 
 @RestController
 @RequestMapping("/client")
+@Api(tags ="Gestion des Clients")
 public class ClientRestController {
 		
 		@Autowired
@@ -25,6 +28,7 @@ public class ClientRestController {
 
 
 		// http://localhost:4070/SpringMVC/client/retrieve-all-clients
+		@ApiOperation(value = "Récuperer la liste des clients")
 		@GetMapping("/retrieve-all-clients")
 		@ResponseBody
 		public List<Client> getClients() {
